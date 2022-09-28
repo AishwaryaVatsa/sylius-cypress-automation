@@ -34,6 +34,11 @@ type GenerateUserInfo = {
     phoneNumber: string
 }
 
+type UserStore = {
+    email: string
+    password: string
+}
+
 declare global {
     namespace Cypress {
         interface Chainable {
@@ -46,16 +51,25 @@ declare global {
                 user?: Partial<GenerateUserInfo>
             ): Chainable<GenerateUserInfo>
 
-            /** */
-            saveUserToUserStore(user: GenerateUserInfo, userKey: string): Chainable<GenerateUserInfo>
+            /** Saves user data*/
+            saveUserToUserStore(data: Partial<UserStore>): Chainable<UserStore>
 
-            /** */
-            getUserFromUserStore(userKey: string): Chainable<Partial<GenerateUserInfo>>
+            /** Get saved user data*/
+            getUserFromUserStore(): Chainable<UserStore>
 
-
+            /** Login user with given email and password*/
+            login(email: string, password: string): void
         }
     }
 }
+
+Cypress.Commands.add('login', (email, password) => {
+    cy.findByText('Login').click()
+    cy.get('#_username').type(email)
+    cy.get('#_password').type(password)
+    cy.findAllByText('Login').last().click()
+    cy.findByDisplayValue('My account').should('be.visible')
+})
 
 Cypress.Commands.add('generateUserInfo', ({
     email = Math.random().toString(36).substring(2, 11) + '@sylius.com',
@@ -69,20 +83,16 @@ Cypress.Commands.add('generateUserInfo', ({
     return cy.wrap(userInfo)
 })
 
-let userStore: { [key: string]: Partial<GenerateUserInfo> }
+let userStore: UserStore = { email: null, password: null }
 
-Cypress.Commands.add('saveUserToUserStore', (user: GenerateUserInfo, userKey: string) => {
-    userStore[userKey] = user
-    return cy.wrap<GenerateUserInfo>(user)
+Cypress.Commands.add('saveUserToUserStore', (data) => {
+    userStore = { ...userStore, ...data }
+    return cy.wrap<UserStore>(userStore)
 })
 
-Cypress.Commands.add('getUserFromUserStore', (userKey: string) => {
-    const user = userStore[userKey]
-    cy.log(`User found: ${user.email}`)
-    cy.wrap(user).should('include.keys', ['email', 'password'])
-
-    return cy.wrap<GenerateUserInfo>(user)
-})
+Cypress.Commands.add('getUserFromUserStore', () =>
+    cy.wrap<UserStore>(userStore)
+)
 
 
 

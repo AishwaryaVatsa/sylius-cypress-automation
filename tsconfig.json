@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "baseUrl": ".",
     "target": "es5",
     "lib": [
       "es5",
@@ -9,9 +10,12 @@
       "cypress",
       "@testing-library/cypress",
       "node"
-    ]
+    ],
+    "paths": {
+      "@config/*":["cypress/config/*"],
+    }
   },
   "include": [
     "**/*.ts", "cypress/support/index.js"
-  ]
+  ],
 }
