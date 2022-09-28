@@ -12,10 +12,13 @@
       "node"
     ],
     "paths": {
-      "@config/*":["cypress/config/*"],
+      "@config/*": [
+        "cypress/config/*"
+      ],
     }
   },
   "include": [
-    "**/*.ts", "cypress/support/index.js"
+    "**/*.ts",
+    "cypress/support/index.ts"
   ],
 }

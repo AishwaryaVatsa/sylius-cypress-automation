@@ -1,5 +1,5 @@
 {
-    "baseUrl":"https://demo.sylius.com/en_US/",
-    "viewportWidth":1366,
-    "viewportHeight":768
+    "baseUrl": "https://demo.sylius.com/en_US/",
+    "viewportWidth": 1366,
+    "viewportHeight": 768
 }

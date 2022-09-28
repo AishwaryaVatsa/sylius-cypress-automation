@@ -1,4 +1,4 @@
-export const clientUrls = {
+export const networkUrls = {
 
 } as const
 
@@ -12,7 +12,7 @@ export const syliusUrls = {
 
 export const urls = {
     clientUrls: {
-        clientUrls
+        ...networkUrls
     },
     syliusUrls: {
         ...syliusUrls
