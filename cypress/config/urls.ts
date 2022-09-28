@@ -19,3 +19,5 @@ export const urls = {
         ...syliusUrls
     }
 }
+
+export default urls

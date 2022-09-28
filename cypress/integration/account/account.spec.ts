@@ -1,4 +1,4 @@
-import { urls } from "../../config/urls"
+import urls from "@config/urls"
 
 describe('my account', () => {
   beforeEach(() => {

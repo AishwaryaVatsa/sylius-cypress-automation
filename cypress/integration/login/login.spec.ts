@@ -1,4 +1,5 @@
-import { urls } from "../../config/urls"
+import { pageIds } from "@config/testids/ids"
+import urls from "@config/urls"
 
 describe('user login', () => {
   beforeEach(() => {
@@ -16,7 +17,7 @@ describe('user login', () => {
     cy.findByText('Forgot password?').click()
     cy.location('pathname').should('include', urls.syliusUrls.FORGOTTEN_PASSWORD)
 
-    cy.get('#sylius_user_request_password_reset_email').type('TestUSer1dfhjgjfh22@mailinator.com')
+    cy.get(pageIds.forgotPassword.RESET_EAMIL).type('TestUSer1dfhjgjfh22@mailinator.com')
     cy.findByText('Reset').click()
 
     cy.location('pathname').should('include', urls.syliusUrls.LOGIN)
