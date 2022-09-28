@@ -7,6 +7,7 @@ describe('my account', () => {
 
   it('account registration', () => {
     cy.findByText('Register').click()
+
     cy.location('pathname').should('include', 'register')
 
     cy.generateUserInfo().then((user) => {
@@ -21,6 +22,14 @@ describe('my account', () => {
 
       cy.saveUserToUserStore({ email: user.email, password: user.password })
     })
+
+    cy.findAllByText(/Success/i).first().should('be.visible')
+    cy.findByText(/Thank you for registering/i).should('be.visible')
+
+    cy.log('Verify - user is not logged in')
+    cy.findByText('Register').should('exist')
+    cy.findByText('My account').should('not.exist')
+
   })
 
   it('subscribing to the newsletter', () => {

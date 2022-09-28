@@ -38,11 +38,15 @@ declare global {
 }
 
 Cypress.Commands.add('login', (email, password) => {
-    cy.findByText('Login').click()
+    cy.findByText('Login').should('exist').click()
+
     cy.get('#_username').type(email)
     cy.get('#_password').type(password)
+
     cy.findAllByText('Login').last().click()
+
     cy.findByText('My account').should('be.visible')
+    cy.findByText('Login').should('not.exist')
 })
 
 Cypress.Commands.add('generateUserInfo', ({
