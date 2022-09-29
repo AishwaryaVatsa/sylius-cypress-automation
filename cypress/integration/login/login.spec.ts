@@ -7,7 +7,7 @@ describe('user login', () => {
   })
 
   it('sign in with email and password', () => {
-    cy.login('shop@example.com', 'sylius')
+    cy.login(Cypress.env('defaultUserName'), Cypress.env('defaultPassword'))
   })
 
   it('resetting a password', () => {

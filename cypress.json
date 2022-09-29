@@ -1,1 +1,11 @@
-{}
+{
+    "defaultCommandTimeout": 8000,
+    "retries": {
+        "runMode": 2,
+        "openMode": 1
+    },
+    "env": {
+        "defaultUserName": "shop@example.com",
+        "defaultPassword": "sylius"
+    }
+}

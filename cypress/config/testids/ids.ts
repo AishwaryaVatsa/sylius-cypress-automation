@@ -9,9 +9,13 @@ export const pageIds = {
     register: {
         FIRST_NAME_INPUT: '#sylius_customer_registration_firstName',
         LAST_NAME_INPUT: '#sylius_customer_registration_lastName',
-        EMAIL_INPUT: '',
-        PH_NO_INPUT: '',
-        PASSWORD_FIRST_INPUT: '',
-        PASSWORD_SECOND_INPUT: '',
+        EMAIL_INPUT: '#sylius_customer_registration_email',
+        PH_NO_INPUT: '#sylius_customer_registration_phoneNumber',
+        PASSWORD_FIRST_INPUT: '#sylius_customer_registration_user_plainPassword_first',
+        PASSWORD_SECOND_INPUT: '#sylius_customer_registration_user_plainPassword_second',
+    },
+    account: {
+        SUBSCRIBE_TO_NEWSLETTER: '#sylius_customer_profile_subscribedToNewsletter',
     }
+
 }

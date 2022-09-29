@@ -1,3 +1,4 @@
+import { pageIds } from '@config/testids'
 import '@testing-library/cypress/add-commands'
 
 type GenerateUserInfo = {
@@ -40,8 +41,8 @@ declare global {
 Cypress.Commands.add('login', (email, password) => {
     cy.findByText('Login').should('exist').click()
 
-    cy.get('#_username').type(email)
-    cy.get('#_password').type(password)
+    cy.get(pageIds.login.USERNAME_INPUT).type(email)
+    cy.get(pageIds.login.PASSWORD_INPUT).type(password)
 
     cy.findAllByText('Login').last().click()
 

@@ -8,7 +8,8 @@ export const syliusUrls = {
     LOGIN: '/login',
     ACCOUNT: '/account/dashboard',
     ACCOUNT_EDIT: '/account/profile/edit',
-    HOMEPAGE:'/'
+    HOMEPAGE:'/',
+    REGISTER: '/register'
 } as const
 
 export const urls = {
