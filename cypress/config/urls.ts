@@ -1,14 +1,14 @@
 export const requestUrls = {
-    REGISTER:'/register',
+    REGISTER: '/register',
 
 } as const
 
 export const syliusUrls = {
-    FORGOTTEN_PASSWORD: '/forgotten-password',
-    LOGIN: '/login',
     ACCOUNT: '/account/dashboard',
     ACCOUNT_EDIT: '/account/profile/edit',
-    HOMEPAGE:'/',
+    FORGOTTEN_PASSWORD: '/forgotten-password',
+    HOMEPAGE: '/',
+    LOGIN: '/login',
     REGISTER: '/register'
 } as const
 
